@@ -15,8 +15,13 @@ class DockingStation
   end
 
   def release_bike
-    fail 'No bikes available' if empty?
-    @bikes.pop
+    if empty?
+      fail 'No bikes available'
+    elsif @bikes.all? {|bike| bike.working? == false}
+      fail 'No working bikes available'
+    else
+      @bikes.pop
+    end
   end
 
 private

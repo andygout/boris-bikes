@@ -1,12 +1,15 @@
 require 'docking_station'
 
 describe DockingStation do
+
+  let(:bike) {double :bike, working?: true}
+
   it {is_expected.to respond_to :release_bike}
 
   it 'releases working bikes' do
-    subject.dock double :bike
-    bike = subject.release_bike
-    expect(bike).to be_working
+    subject.dock bike
+    released_bike = subject.release_bike
+    expect(released_bike.working?).to be true
   end
 
   it {is_expected.to respond_to(:dock).with(1).argument}

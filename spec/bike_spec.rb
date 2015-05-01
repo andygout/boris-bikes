@@ -5,7 +5,7 @@ describe Bike do
 
   it 'can be reported broken' do
     subject.report_broken
-    expect(subject.working = false).to_not be_working
+    expect(subject.working = false).to be_falsey
   end
 
 end

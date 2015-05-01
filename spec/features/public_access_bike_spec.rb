@@ -18,6 +18,6 @@ feature 'member of public accesses bike' do
     bike = Bike.new
     bike.report_broken
     docking_station.dock bike
-    expect {docking_station.release_bike}.to raise_error 'No bikes available'
+    expect {docking_station.release_bike}.to raise_error 'No working bikes available'
   end
 end
